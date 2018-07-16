@@ -1,0 +1,6 @@
+-e git+https://github.com/dranjan/termcolors.git#egg=termcolors
+wcag-contrast-ratio
+colormath
+scikit-learn
+scipy
+numpy
