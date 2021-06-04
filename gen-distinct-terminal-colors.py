@@ -67,7 +67,6 @@ def main():
     closest, _ = pairwise_distances_argmin_min(
         est.cluster_centers_, palette[:, 0:2])
     # Sort the colors using the HSV colorspace.
-    colors = palette[closest][:, 3].astype(int)
     sorted_colors = []
     for col in palette[closest]:
         index = col[3].astype(int)
@@ -84,10 +83,9 @@ def main():
     with ColorDisplay(0, 100, 3) as C:
         for color in sorted_colors:
             index = color.index
-            stdout.write(C.block(index))
-            stdout.write(C.block(index))
-            stdout.write(C.block(index))
-        stdout.write('\n')
+            stdout.write(C.block(index, 3))
+            stdout.write(C.fgcolor(index))
+            stdout.write(' Lorem ipsum dolor sit amet\n')
 
 
 if __name__ == '__main__':
